@@ -1,0 +1,193 @@
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f4f2ee;color:#111;font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}header{position:fixed;z-index:20;top:0;width:100%;height:76px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;color:#fff;mix-blend-mode:difference}.logo{display:block;width:260px;color:#fff}.logo img{display:block;width:100%;height:auto}.footer-logo{color:#111;width:210px}nav{display:flex;gap:28px;font-size:13px;text-transform:uppercase;letter-spacing:.1em}.menu{display:none;background:none;border:0;color:inherit;font-size:24px}.hero{height:100vh;min-height:650px;position:relative;color:#fff;overflow:hidden}.hero-img{position:absolute;inset:0;background-size:cover;background-position:center}.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.05))}.hero-copy{position:absolute;left:6vw;bottom:9vh}.hero-copy p,.eyebrow{font-size:12px;letter-spacing:.22em;font-weight:700}.hero h1{font-size:clamp(58px,8vw,125px);line-height:.82;letter-spacing:-.055em;margin:20px 0 35px}.cta{font-size:13px;border-bottom:1px solid;padding-bottom:5px}.intro{padding:130px 8vw;max-width:1100px}.intro h2,.section-head h2,.about h2,.contact h2{font-size:clamp(42px,6vw,88px);line-height:.98;letter-spacing:-.045em;margin:20px 0}.intro>p:last-child{font-size:18px;max-width:600px;line-height:1.6;color:#555}.work{padding:40px 4vw 120px}.section-head{padding:0 4vw 30px}.portfolio-tabs{margin:0 4vw 42px;border-bottom:1px solid #bbb;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}.portfolio-tabs::-webkit-scrollbar{display:none}.portfolio-tabs button{appearance:none;border:0;border-bottom:3px solid transparent;background:transparent;padding:15px 24px 14px;cursor:pointer;font-size:13px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:#777}.portfolio-tabs button:hover{color:#111}.portfolio-tabs button.active{color:#111;border-bottom-color:#111;font-weight:700}.category-title{padding:0 4vw 26px}.category-title h3{font-size:clamp(32px,4vw,58px);letter-spacing:-.04em;margin:10px 0 0}.gallery{columns:3 280px;column-gap:12px}.gallery figure{margin:0 0 12px;break-inside:avoid;overflow:hidden;background:#ddd;cursor:zoom-in}.gallery img{width:100%;display:block;transition:transform .45s}.gallery figure:hover img{transform:scale(1.02)}.about{background:#111;color:#fff;display:grid;grid-template-columns:1fr 1fr;min-height:760px}.about-photo img{width:100%;height:100%;object-fit:cover}.about-copy{padding:9vw 8vw;display:flex;flex-direction:column;justify-content:center}.about-copy p:not(.eyebrow){max-width:560px;line-height:1.7;color:#c9c9c9;font-size:17px}.contact{padding:150px 8vw}.contact a{font-size:clamp(20px,3vw,42px);border-bottom:1px solid}footer{border-top:1px solid #ccc;padding:45px 4vw;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:13px}.lightbox{display:none;position:fixed;z-index:50;inset:0;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:4vw}.lightbox.open{display:flex}.lightbox img{max-width:92vw;max-height:90vh}.lightbox button{position:absolute;right:25px;top:15px;background:none;border:0;color:#fff;font-size:42px;cursor:pointer}@media(max-width:700px){header{height:64px}.menu{display:block}nav{display:none;position:absolute;top:60px;right:4vw;flex-direction:column;background:#111;padding:20px}.hero-copy{left:7vw}.intro{padding:90px 7vw}.work{padding-left:3vw;padding-right:3vw}.gallery{columns:2 140px;column-gap:7px}.gallery figure{margin-bottom:7px}.about{grid-template-columns:1fr}.about-photo{height:70vh}.about-copy{padding:90px 7vw}.contact{padding:100px 7vw}footer{align-items:flex-start;flex-direction:column}}
+
+.gallery figure{position:relative}.gallery figcaption{position:absolute;left:12px;bottom:10px;background:rgba(0,0,0,.65);color:#fff;padding:5px 8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:0;transition:.25s}.gallery figure:hover figcaption{opacity:1}.contact p{color:#555;max-width:520px;line-height:1.7}.locked{overflow:hidden}.legal{background:#f4f2ee}.legal-header{position:relative;color:#111;mix-blend-mode:normal;border-bottom:1px solid #d7d3cc}.legal-header .logo{color:#111}.legal-main{max-width:860px;margin:0 auto;padding:70px 28px 120px}.legal-main h1{font-size:clamp(50px,8vw,92px);letter-spacing:-.05em;margin:50px 0 70px}.legal-main h2{font-size:22px;margin-top:45px}.legal-main p{font-size:16px;line-height:1.75;color:#444}.legal-main a{text-decoration:underline}.legal-main mark{background:#fff1a8;padding:2px 5px}.back{font-size:13px;letter-spacing:.08em;text-transform:uppercase}.note{margin-top:55px;padding:20px;border:1px solid #c9c4bb;background:#ebe7df}@media(max-width:700px){.logo{width:190px}.footer-logo{width:180px}nav.open{display:flex}.gallery figcaption{display:none}}
+.back-to-top{position:fixed;right:28px;bottom:28px;z-index:35;width:52px;height:52px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:#111;color:#fff;font-size:23px;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,transform .25s,visibility .25s;box-shadow:0 8px 28px rgba(0,0,0,.2)}.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}.back-to-top:hover{transform:translateY(-3px)}@media(max-width:700px){.portfolio-tabs{margin-left:4vw;margin-right:4vw}.portfolio-tabs button{padding:13px 17px}.back-to-top{right:16px;bottom:16px;width:46px;height:46px}}
+
+/* V4: Original Davis Media logo + contact links */
+.logo img{height:58px;width:auto;object-fit:contain;display:block}.footer-logo img{height:82px}.contact-links{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;margin-top:1rem}.contact-links a{display:inline-block}@media(max-width:700px){.logo img{height:46px}.footer-logo img{height:68px}}
+
+/* V5 */
+header{mix-blend-mode:normal;background:linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,0));height:105px}.logo{width:auto}.logo img{height:72px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}.hero-img{background-position:center 48%}.intro{padding-bottom:70px}.work{padding-top:0}.portfolio-tabs{margin-top:0}.gallery{display:flex;gap:12px;columns:auto}.gallery-column{flex:1;min-width:0}.gallery-column figure{margin:0 0 12px}.gallery-column img{width:100%;height:auto;display:block}.section-head,.category-title{display:none}@media(max-width:700px){header{height:82px}.logo img{height:55px}.gallery{gap:7px}.gallery-column figure{margin-bottom:7px}.hero-img{background-position:center center}.intro{padding-bottom:55px}}
+
+/* V6 */
+header{position:absolute;top:0;left:0;right:0;background:linear-gradient(to bottom,rgba(0,0,0,.48),rgba(0,0,0,0));justify-content:flex-end}.footer-logo img{height:44px!important;width:auto!important}.footer-logo{width:auto!important}footer{background:#111;color:#fff;border-top:0}footer a{color:#fff}@media(max-width:700px){.footer-logo img{height:38px!important}}
+
+/* V7: branded legal headers */
+.legal-header .logo{width:auto!important}.legal-header .logo img{height:42px!important;width:auto!important;filter:none!important}@media(max-width:700px){.legal-header .logo img{height:34px!important}}
+
+/* V8 typography / section cleanup */
+.intro{padding-top:58px;padding-bottom:76px;max-width:none;text-align:center}
+.hero-subtitle{margin:0 auto;max-width:850px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,2.5vw,36px)!important;line-height:1.3!important;font-style:italic;font-weight:400;color:#222!important;letter-spacing:-.015em}
+@media(max-width:700px){.intro{padding-top:42px;padding-bottom:52px}.hero-subtitle{font-size:22px!important;padding:0 3vw}}
+
+/* V9: softer intro transition + jump-down control */
+.intro{position:relative;padding-top:54px;padding-bottom:92px;background:linear-gradient(to bottom,#f4f2ee 0%,#f4f2ee 68%,#efede8 100%)}
+.hero-subtitle{font-family:Arial,Helvetica,sans-serif!important;font-size:18px!important;line-height:1.6!important;font-style:normal;font-weight:400;letter-spacing:0!important;color:#555!important}
+.to-bottom{display:inline-flex;align-items:center;gap:9px;margin-top:27px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#777;transition:color .2s,transform .2s}
+.to-bottom span{font-size:16px;line-height:1}.to-bottom:hover{color:#111;transform:translateY(2px)}
+.work{background:#efede8;padding-top:30px}
+@media(max-width:700px){.intro{padding-top:40px;padding-bottom:68px}.hero-subtitle{font-size:16px!important;line-height:1.55!important;padding:0 6vw}.to-bottom{margin-top:22px}.work{padding-top:24px}}
+
+/* V10: stronger left-aligned subtitle and paired page scroll controls */
+.intro{max-width:none;padding-left:8vw;padding-right:8vw;text-align:left}
+.hero-subtitle{margin:0!important;max-width:820px!important;font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(25px,2.6vw,38px)!important;line-height:1.22!important;font-style:normal!important;font-weight:700!important;letter-spacing:-.025em!important;color:#222!important;text-align:left!important}
+.to-bottom{display:none!important}
+.page-scroll-controls{position:fixed;right:28px;bottom:28px;z-index:35;display:flex;flex-direction:column;gap:10px}
+.page-scroll-button{width:52px;height:52px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:#111;color:#fff;font-size:23px;cursor:pointer;box-shadow:0 8px 28px rgba(0,0,0,.2);transition:opacity .25s,transform .25s,visibility .25s}
+.page-scroll-button:hover{transform:translateY(-3px)}
+#backToTop{opacity:0;visibility:hidden;transform:translateY(12px)}
+#backToTop.visible{opacity:1;visibility:visible;transform:translateY(0)}
+#toBottom.hidden{opacity:0;visibility:hidden;transform:translateY(12px)}
+@media(max-width:700px){.intro{padding-left:7vw;padding-right:7vw}.hero-subtitle{font-size:24px!important;line-height:1.25!important;padding:0!important}.page-scroll-controls{right:16px;bottom:16px}.page-scroll-button{width:46px;height:46px}}
+
+
+/* V11: editorial subtitle + intuitive scroll control order */
+.hero-subtitle{
+  margin:0!important;
+  max-width:760px!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(24px,2.15vw,31px)!important;
+  line-height:1.32!important;
+  font-style:normal!important;
+  font-weight:600!important;
+  letter-spacing:-.018em!important;
+  color:#292826!important;
+  text-align:left!important;
+}
+.intro{padding-top:58px;padding-bottom:96px}
+@media(max-width:700px){
+  .hero-subtitle{font-size:23px!important;line-height:1.34!important;max-width:92%!important}
+  .intro{padding-top:44px;padding-bottom:72px}
+}
+
+
+/* V12: clean sans-serif subtitle aligned with the site typography */
+.hero-subtitle{
+  margin:0!important;
+  max-width:760px!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:clamp(19px,1.55vw,23px)!important;
+  line-height:1.5!important;
+  font-style:normal!important;
+  font-weight:500!important;
+  letter-spacing:-.01em!important;
+  color:#55524e!important;
+  text-align:left!important;
+}
+.intro{padding-top:52px;padding-bottom:90px}
+@media(max-width:700px){
+  .hero-subtitle{font-size:18px!important;line-height:1.5!important;max-width:100%!important}
+  .intro{padding-top:38px;padding-bottom:64px}
+}
+
+
+/* V13: goal section mirrors the Contact section hierarchy */
+.intro-title{
+  font-size:clamp(42px,6vw,88px);
+  line-height:.98;
+  letter-spacing:-.045em;
+  margin:0 0 22px;
+  font-weight:700;
+}
+.hero-subtitle{
+  margin:0!important;
+  max-width:620px!important;
+  font-size:18px!important;
+  line-height:1.7!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  color:#555!important;
+}
+@media(max-width:700px){
+  .intro-title{margin-bottom:18px}
+  .hero-subtitle{font-size:16px!important;line-height:1.65!important}
+}
+
+/* V15: italic goal statement */
+.hero-subtitle{font-style:italic!important;}
+
+/* V16 – warmer text treatment on dark areas */
+header,.hero,.about,footer{color:#f4f2ee!important}
+footer a{color:#f4f2ee!important}
+.about-copy p:not(.eyebrow){color:#d6d2cb!important}
+.lightbox button,.page-scroll-button,.back-to-top{color:#f4f2ee!important}
+@media(max-width:700px){nav{color:#f4f2ee}}
+.hero-subtitle{font-style:normal!important}
+
+
+/* V17 – large closing statement in goal section */
+.goal-statement{
+  margin:48px 0 0;
+  max-width:1100px;
+  font-size:clamp(58px,8vw,118px);
+  line-height:.9;
+  letter-spacing:-.055em;
+  font-weight:700;
+  color:#111;
+}
+@media(max-width:700px){
+  .goal-statement{margin-top:36px;font-size:clamp(48px,15vw,76px);line-height:.92}
+}
+
+/* V18 – unify goal headings */
+.goal-statement{
+  margin:48px 0 0;
+  max-width:none;
+  font-size:clamp(42px,6vw,88px);
+  line-height:.98;
+  letter-spacing:-.045em;
+  font-weight:700;
+  color:#111;
+}
+@media(max-width:700px){
+  .goal-statement{margin-top:36px;font-size:clamp(42px,6vw,88px);line-height:.98}
+}
+
+/* V19 – exact same rendered size for both goal headings */
+.intro-title,
+.goal-statement{
+  font-size:clamp(42px,6vw,88px)!important;
+  line-height:.98!important;
+  letter-spacing:-.045em!important;
+  font-weight:700!important;
+}
+@media(max-width:700px){
+  .intro-title,
+  .goal-statement{
+    font-size:clamp(42px,12vw,72px)!important;
+    line-height:.98!important;
+  }
+}
+
+
+/* V20 – quiet transition from goal statement into portfolio */
+.intro-divider{display:flex;align-items:center;width:100%;margin-top:52px;}
+.intro-divider::before{content:"";width:58px;height:3px;background:#111;flex:0 0 auto;}
+.intro-divider span{display:block;height:1px;background:rgba(17,17,17,.22);flex:1;}
+@media(max-width:700px){.intro-divider{margin-top:38px}.intro-divider::before{width:42px;height:3px}}
+/* V23: Intro-Fließtext typografisch identisch mit dem Kontakt-Fließtext */
+.intro .intro-copy {
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.7;
+  letter-spacing: normal;
+}
+
+/* V24: Intro and contact supporting copy share exactly the same typography */
+.intro .intro-copy,
+.contact > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.7;
+  letter-spacing: normal;
+  color: #555;
+}
+
+/* V25: Intro supporting copy optically lighter */
+.intro .intro-copy {
+  font-weight: 300;
+}
