@@ -191,3 +191,17 @@ footer a{color:#f4f2ee!important}
 .intro .intro-copy {
   font-weight: 300;
 }
+
+/* V27: mobile about image + swipeable lightbox */
+.lightbox{touch-action:pan-y;user-select:none}
+.lightbox-close{position:absolute!important;right:25px!important;top:15px!important;z-index:3}
+.lightbox-nav{position:absolute!important;top:50%!important;transform:translateY(-50%);width:56px;height:80px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22)!important;border:0;color:#f4f2ee;font-size:58px!important;line-height:1;cursor:pointer;z-index:2}
+.lightbox-prev{left:18px!important;right:auto!important}
+.lightbox-next{right:18px!important;left:auto!important}
+@media(max-width:700px){.about-photo{height:auto!important}.about-photo img{height:auto!important;object-fit:contain!important;display:block}.lightbox{padding:18px}.lightbox img{max-width:100%;max-height:88vh}.lightbox-nav{width:42px;height:64px;font-size:46px!important;background:rgba(0,0,0,.14)!important}.lightbox-prev{left:2px!important}.lightbox-next{right:2px!important}}
+
+
+/* V27 update: logo at top-left, part of normal hero/header flow (not sticky) */
+.top-logo{position:absolute;left:4vw;top:22px;display:block;width:auto;z-index:2}
+.top-logo img{display:block;height:54px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.28))}
+@media(max-width:700px){.top-logo{left:4vw;top:16px}.top-logo img{height:44px}}
