@@ -42,6 +42,30 @@ function render(filter='hochzeit'){
   })
 }
 render();
+
+function correctInitialAnchor(){
+  const hash=window.location.hash;
+  if(hash!=='#about' && hash!=='#contact') return;
+
+  const target=document.querySelector(hash);
+  if(!target) return;
+
+  const correct=()=>target.scrollIntoView({
+    behavior:'auto',
+    block:'start'
+  });
+
+  correct();
+
+  window.addEventListener('load',()=>{
+    correct();
+    setTimeout(correct,300);
+    setTimeout(correct,1000);
+  },{once:true});
+}
+
+correctInitialAnchor();
+  
 document.querySelectorAll('.portfolio-tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.portfolio-tabs button').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});
   b.classList.add('active');b.setAttribute('aria-selected','true');render(b.dataset.filter)
