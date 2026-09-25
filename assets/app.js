@@ -50,17 +50,17 @@ function correctInitialAnchor(){
   const target=document.querySelector(hash);
   if(!target) return;
 
-  const correct=()=>target.scrollIntoView({
-    behavior:'auto',
-    block:'start'
-  });
-
-  correct();
+  history.replaceState(null,'',window.location.pathname);
+  window.scrollTo(0,0);
 
   window.addEventListener('load',()=>{
-    correct();
-    setTimeout(correct,300);
-    setTimeout(correct,1000);
+    setTimeout(()=>{
+      target.scrollIntoView({
+        behavior:'auto',
+        block:'start'
+      });
+      history.replaceState(null,'',hash);
+    },1000);
   },{once:true});
 }
 
