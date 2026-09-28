@@ -41,7 +41,19 @@ function render(filter='hochzeit'){
     holders[i%cols].appendChild(f)
   })
 }
-render();
+const requestedPortfolio=new URLSearchParams(window.location.search).get('portfolio');
+const validPortfolios=['hochzeit','portrait','produkte','bts'];
+const initialPortfolio=validPortfolios.includes(requestedPortfolio)?requestedPortfolio:'hochzeit';
+
+render(initialPortfolio);
+
+if(initialPortfolio!=='hochzeit'){
+  document.querySelectorAll('.portfolio-tabs button').forEach(b=>{
+    const active=b.dataset.filter===initialPortfolio;
+    b.classList.toggle('active',active);
+    b.setAttribute('aria-selected',active?'true':'false');
+  });
+}
 
 function correctInitialAnchor(){
   const hash=window.location.hash;
