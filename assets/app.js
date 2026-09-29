@@ -66,31 +66,22 @@ function correctInitialAnchor(){
   const target=document.querySelector(hash);
   if(!target) return;
 
-  history.replaceState(null,'',window.location.pathname + window.location.search);
+  history.replaceState(null,'',window.location.pathname);
   window.scrollTo(0,0);
 
-  const scrollToTarget=()=>{
-    target.scrollIntoView({
-      behavior:'auto',
-      block:'start'
-    });
-  };
-
   window.addEventListener('load',()=>{
-    scrollToTarget();
-
-    // Galerie-Bilder können beim Laden noch die Seitenhöhe verändern.
-    // Deshalb Position kurz stabilisieren und anschließend final setzen.
-    setTimeout(scrollToTarget,500);
     setTimeout(()=>{
-      scrollToTarget();
-      history.replaceState(null,'',window.location.pathname + window.location.search + hash);
-    },1500);
+      target.scrollIntoView({
+        behavior:'auto',
+        block:'start'
+      });
+      history.replaceState(null,'',hash);
+    },1000);
   },{once:true});
 }
 
 correctInitialAnchor();
-
+  
 document.querySelectorAll('.portfolio-tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.portfolio-tabs button').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});
   b.classList.add('active');b.setAttribute('aria-selected','true');render(b.dataset.filter)
@@ -112,6 +103,7 @@ document.addEventListener('keydown',e=>{
 });
 
 let touchStartX=0,touchStartY=0;
+
 lb.addEventListener('touchstart',e=>{
   if(e.touches.length!==1)return;
   touchStartX=e.touches[0].clientX;
