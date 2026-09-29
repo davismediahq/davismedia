@@ -18,15 +18,18 @@ function showImage(index){
   lbImg.src=images[currentIndex];
   lbImg.alt=`${names[current]} – Portfolio ${currentIndex+1} von ${images.length}`;
 }
+
 function openLightbox(index){
   showImage(index);
   lb.classList.add('open');
   document.body.classList.add('locked');
 }
+
 function close(){
   lb.classList.remove('open');
   document.body.classList.remove('locked');
 }
+
 function render(filter='hochzeit'){
   current=filter;g.innerHTML='';
   const cols=window.innerWidth<=700?2:3;
@@ -41,6 +44,7 @@ function render(filter='hochzeit'){
     holders[i%cols].appendChild(f)
   })
 }
+
 const requestedPortfolio=new URLSearchParams(window.location.search).get('portfolio');
 const validPortfolios=['hochzeit','portrait','produkte','bts'];
 const initialPortfolio=validPortfolios.includes(requestedPortfolio)?requestedPortfolio:'hochzeit';
@@ -62,51 +66,83 @@ function correctInitialAnchor(){
   const target=document.querySelector(hash);
   if(!target) return;
 
-  history.replaceState(null,'',window.location.pathname);
+  history.replaceState(null,'',window.location.pathname + window.location.search);
   window.scrollTo(0,0);
 
+  const scrollToTarget=()=>{
+    target.scrollIntoView({
+      behavior:'auto',
+      block:'start'
+    });
+  };
+
   window.addEventListener('load',()=>{
+    scrollToTarget();
+
+    // Galerie-Bilder können beim Laden noch die Seitenhöhe verändern.
+    // Deshalb Position kurz stabilisieren und anschließend final setzen.
+    setTimeout(scrollToTarget,500);
     setTimeout(()=>{
-      target.scrollIntoView({
-        behavior:'auto',
-        block:'start'
-      });
-      history.replaceState(null,'',hash);
-    },1000);
+      scrollToTarget();
+      history.replaceState(null,'',window.location.pathname + window.location.search + hash);
+    },1500);
   },{once:true});
 }
 
 correctInitialAnchor();
-  
+
 document.querySelectorAll('.portfolio-tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.portfolio-tabs button').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});
   b.classList.add('active');b.setAttribute('aria-selected','true');render(b.dataset.filter)
 });
+
 let lastCols=window.innerWidth<=700?2:3;
 window.addEventListener('resize',()=>{const c=window.innerWidth<=700?2:3;if(c!==lastCols){lastCols=c;render(current)}});
+
 closeBtn.onclick=close;
 prevBtn.onclick=e=>{e.stopPropagation();showImage(currentIndex-1)};
 nextBtn.onclick=e=>{e.stopPropagation();showImage(currentIndex+1)};
 lb.onclick=e=>{if(e.target===lb)close()};
+
 document.addEventListener('keydown',e=>{
   if(!lb.classList.contains('open'))return;
   if(e.key==='Escape')close();
   if(e.key==='ArrowLeft')showImage(currentIndex-1);
   if(e.key==='ArrowRight')showImage(currentIndex+1);
 });
+
 let touchStartX=0,touchStartY=0;
-lb.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;touchStartX=e.touches[0].clientX;touchStartY=e.touches[0].clientY},{passive:true});
+lb.addEventListener('touchstart',e=>{
+  if(e.touches.length!==1)return;
+  touchStartX=e.touches[0].clientX;
+  touchStartY=e.touches[0].clientY
+},{passive:true});
+
 lb.addEventListener('touchend',e=>{
   if(e.changedTouches.length!==1)return;
   const dx=e.changedTouches[0].clientX-touchStartX;
   const dy=e.changedTouches[0].clientY-touchStartY;
-  if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.2){showImage(currentIndex+(dx<0?1:-1))}
+  if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.2){
+    showImage(currentIndex+(dx<0?1:-1))
+  }
 },{passive:true});
+
 document.querySelector('#year').textContent=new Date().getFullYear();
 document.querySelector('.menu').onclick=()=>document.querySelector('nav').classList.toggle('open');
+
 const topBtn=document.querySelector('#backToTop');
 const bottomBtn=document.querySelector('#toBottom');
-const toggleScrollButtons=()=>{topBtn.classList.toggle('visible',window.scrollY>650);const nearBottom=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-180;bottomBtn.classList.toggle('hidden',nearBottom)};
-window.addEventListener('scroll',toggleScrollButtons,{passive:true});window.addEventListener('resize',toggleScrollButtons);toggleScrollButtons();
-topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});bottomBtn.onclick=()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'});
+
+const toggleScrollButtons=()=>{
+  topBtn.classList.toggle('visible',window.scrollY>650);
+  const nearBottom=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-180;
+  bottomBtn.classList.toggle('hidden',nearBottom)
+};
+
+window.addEventListener('scroll',toggleScrollButtons,{passive:true});
+window.addEventListener('resize',toggleScrollButtons);
+toggleScrollButtons();
+
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+bottomBtn.onclick=()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'});
 })();
